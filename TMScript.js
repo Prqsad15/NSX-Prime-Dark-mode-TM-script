@@ -1,8 +1,9 @@
 	// ==UserScript==
-	// @name         NSXPrime True Dark Mode
-	// @namespace    nsxprime-darkmode
-	// @version      1.8
-	// @description  Dark mode with configurable color palette
+	//  @name         NSXPrime True Dark Mode
+	// @namespace    https://github.com/Prqsad15
+	// @version      1.9
+	// @description  Dark mode for NSXPrime (XenForo override)
+	// @author       Prqsad15
 	// @match        https://www.nsxprime.com/*
 	// @run-at       document-start
 	// @grant        GM_addStyle
@@ -148,7 +149,7 @@
 			border-color: var(NSX_RED) !important;
 		}
 
-		
+
 		/* ================================
 	   📝 XENFORO FORM LABEL FIX
 	   ================================ */
@@ -176,7 +177,7 @@
 			background-color: ${COLORS.BG_PANEL} !important;
 		}
 
-		
+
 		/* MENUS */
 		.menu,
 		.menu-content {
@@ -307,7 +308,7 @@
 			fill: ${COLORS.EDITOR_TEXT} !important;
 			color: ${COLORS.EDITOR_TEXT} !important;
 		}
-		
+
 		/* Editor background */
 	.fr-box .fr-element {
 		background-color: #0f0f0f !important;
@@ -830,7 +831,7 @@
 			background-color: ${COLORS.BG_HOVER} !important;
 			color: ${COLORS.TEXT_MAIN} !important;
 		}
-		
+
 		/* ================================
 	   🔒 PASSWORD SHOW / HIDE FIX
 	   ================================ */
@@ -869,12 +870,43 @@
 		.inputGroup-text input[type="checkbox"]:checked ~ .iconic-label {
 			color: ${COLORS.ACCENT} !important;
 		}
+		/* ================================
+   👤 MEMBER HEADER BLURB HARD FIX
+   ================================ */
 
-		
-		
-		
-		
-		
+	/* Force entire blurb container */
+	.memberHeader-blurbContainer {
+		background-color: ${COLORS.BG_PANEL} !important;
+		color: ${COLORS.TEXT_MUTED} !important;
+	}
+
+	/* Kill XenForo concealed color */
+	.memberHeader-blurbContainer .u-concealed,
+	.memberHeader-blurbContainer .u-concealed a {
+		color: ${COLORS.TEXT_MUTED} !important;
+	}
+
+	/* Inline spans (the dot separator, etc) */
+	.memberHeader-blurbContainer span {
+		color: ${COLORS.TEXT_MUTED} !important;
+	}
+
+	/* Definition list labels */
+	.memberHeader-blurbContainer dt {
+		color: ${COLORS.TEXT_MUTED} !important;
+	}
+
+	/* Definition list values */
+	.memberHeader-blurbContainer dd,
+	.memberHeader-blurbContainer time {
+		color: ${COLORS.TEXT_MAIN} !important;
+	}
+
+	/* Hover safety */
+	.memberHeader-blurbContainer a:hover {
+		color: ${COLORS.TEXT_LINK_HOV} !important;
+	}
+
 		`;
 
 		GM_addStyle(css);
